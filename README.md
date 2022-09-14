@@ -12,4 +12,11 @@ And another version that calculates the medians for a few NYC counties and accom
 
 The script is heavily commented, so look there for more information.
 
+## License:
+* MIT
+* See: [LICENSE](./LICENSE)
+
+
+
+
 
