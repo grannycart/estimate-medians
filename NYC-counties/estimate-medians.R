@@ -1,26 +1,12 @@
 # estimate-medians.R
-# Last modified: Mon Sep 16, 2019  05:32PM
+# Last modified: Tue Sep 13, 2022  09:11PM
 
 # Introduction
-# In Chicago the most common way to define neighborhoods in the city is
-# by Chicago Community Areas (CCAs). CCAs are an artifact of historical
-# processes. Unfortunately they vary widely in population size and other
-# characteristics. They are not ideal for doing any kind of analysis,
-# but they are the areas that community members who would be doing
-# our workshop can identify with, so we need to fit any data we want
-# to present to them to these areas. Neither the ACS nor Chicago
-# calculates the Median Family Income for CCAs, so this script does that,
-# by estimating the MFI from the ACS families by income data (table
-# B19101).
+# This script calculates median incomes of NYC counties.
+# Median incomes ARE available at the county level from the Census.
+# I just used to this to check if my script calculated the median income as the Census.
 # 
-# Thankfully CCAs at least have boundaries along Census tract lines and
-# B19101 data is available at the tract level, so we can build CCAs by
-# selecting the rows with the data for the tracts that make up each CCA
-# and then use linear interpolation to estimate the MFI for the CCA. (I
-# asked some people at the Census if this is a statistically valid way to
-# do this, and they said it is.)
-# 
-# This script is simplistic, it only does one CCA at a time.
+# This script is simplistic, it only does one county at a time.
 # It's also unessarily pedantic so I can make sure it is doing each thing
 # correctly as I learn R.
 #
@@ -33,8 +19,6 @@
 # are supposed to use Pareto interpolation if the bin containing the
 # median is wider than $2500.
 # (See: https://s4.ad.brown.edu/Projects/Diversity/SUC/MHHINote.htm)
-# Since these medians are just to give community members a quick sense
-# of who lives in a given CCA, strict accuracy isn't as important.
 # 
 # Likewise, best practices would be to include MOEs for the estimated
 # medians, which it is possible to calculate from the data I have here.
@@ -51,17 +35,8 @@ library(tidyverse)
 # comes from the ACS and let the script clean it up. But some things
 # are easier to do outside of R, so I did them outside of R.
 #
-# First, I don't have a list of tract numbers for each CCA, 
-# the only thing I had access to was the CCA shape file.
-# So I used QGIS to combine the B19101 data with Census tract geo data
-# for Chicago. Then I laid the CCA boundaries over the Chicago Census
-# tracts, and then visually selected the Census tracts that make up each
-# CCA and exported those rows as a csv.  There may be a cool R way to
-# do this, but with my knowledge of QGIS visually selecting them just
-# seemed like the easiest way.  
-#
 # Once you've set up the file, edit this filename here to change your
-# input file with your data for each CCA:
+# input file with your data for each county:
 raw_CCA_tract_income_data <-
 	read_csv("Kings-county/ACS_17_5YR_B19101_with_ann.csv", skip = 1, na = ".")
 #	read_csv("NY-county/ACS_17_5YR_B19101_with_ann.csv", skip = 1, na = ".")
@@ -73,7 +48,7 @@ raw_CCA_tract_income_data <-
 # out of the ACS file headers, but there's a bunch of string->int
 # stuff that I would need to figure out that would take a lot longer
 # than just typing in the values to a separate file did. You can use the
-# same file here for all the CCA median calculations - just make sure
+# same file here for all the county median calculations - just make sure
 # the columns line up precisely with the columns of your data file.
 raw_minmax_bin_values <-
 	read_csv("Income-bins-minmax-table_ACS_13_5YR_B19101.csv", 
