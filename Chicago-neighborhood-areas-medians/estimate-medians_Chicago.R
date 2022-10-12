@@ -1,5 +1,5 @@
 # estimate-medians.R
-# Mark Torrey - mark@welcometocup.org
+# Last modified: Wed Oct 12, 2022  02:44PM
 
 ########################################################################
 # Introduction
@@ -25,8 +25,8 @@
 # do this, and they said it is.)
 # 
 # This script is simplistic, it only does one CCA at a time.
-# It's also uneasily pedantic so I can make sure it is doing each thing
-# correctly as I learn R.
+# It's also unnecessarily pedantic so I can make sure it is doing each 
+# thing correctly as I learn R.
 #
 # There's a number of ways it could be improved, and I'll point some of
 # those out in the comments. The first thing this
@@ -48,6 +48,7 @@
 # in boroughs of NYC (because I can check those against the Census 
 # calculation of the MFIs of the boroughs). In all cases the estimate 
 # from this script was within $500 of the Census' calculated MFI.
+# (See estimate-medians-NYC.R)
 ########################################################################
 
 # Setup:
