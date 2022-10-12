@@ -1,10 +1,12 @@
 # estimate-medians.R
-# Last modified: Wed Oct 12, 2022  02:44PM
+# Last modified: Wed Oct 12, 2022  05:12PM
 
 # Introduction
 # This script calculates median incomes of NYC counties.
 # Median incomes ARE available at the county level from the Census.
 # I just used to this to check if my script calculated the median income as the Census.
+#
+# The comments in this file have been revised for legibility from the Chicago version.
 # 
 # This script is simplistic, it only does one county at a time.
 # It's also unnecessarily pedantic so I can make sure it is doing each thing
