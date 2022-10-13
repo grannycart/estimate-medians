@@ -1,5 +1,5 @@
-# estimate-medians.R
-# Last modified: Wed Oct 12, 2022  05:12PM
+# estimate-medians-NYC.R
+# Last modified: Thu Oct 13, 2022  03:36PM
 
 # Introduction
 # This script calculates median incomes of NYC counties.
@@ -28,7 +28,7 @@
 # 
 
 # First, set working directory and load tidyverse
-setwd("SHUTTLEBAY/AHT/median-calculation-experiments")
+setwd("estimate-medians/NYC-counties/")
 library(tidyverse)
 
 # File prep:
