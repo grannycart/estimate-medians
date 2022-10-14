@@ -1,5 +1,5 @@
 estimate-medians/learning-R.md
-Last modified: Thu Oct 13, 2022  03:38PM
+Last modified: Fri Oct 14, 2022  01:02PM
 
 # Additional personal notes on learning R
 
@@ -34,7 +34,18 @@ Last modified: Thu Oct 13, 2022  03:38PM
 	* at > prompt use q()
 	* at + prompt use CTRL-C
 * setwd(dir) sets the working directory; getwd() prints it.
-
+* (with tidyverse readr package) Read in csv with: 
+	* tibble_name <- read_csv("filename.csv")
+	* problems(tibble_name) will show you problems with the read
+	* You will probably have to/probably should specify all the column types
+	* Or you could read everything in as a character:
+		* tibble2_name <- read_csv("challenge.csv", col_types = cols(.default = col_character()))
+		* And then you can use type_convert(tibble2_name) to run the type parser on it
+* (with tidyverse readr package) write out csv with: 
+	* write_csv(tibble2_name, "filename.csv")
+	* Or: write_excel_csv(tibble2_name, "filename.csv") which saves a special csv that tells excel the encoding is UTF-8
+	* These both write UTF-8 by default
+	* BUT type info is lost in csv. For interim work, save in special R binary with: write_rds() and read_rds()
 
 
 
