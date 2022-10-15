@@ -1,5 +1,5 @@
 estimate-medians/learning-R.md
-Last modified: Fri Oct 14, 2022  01:02PM
+Last modified: Sat Oct 15, 2022  02:27PM
 
 # Additional personal notes on learning R
 
@@ -7,13 +7,16 @@ Last modified: Fri Oct 14, 2022  01:02PM
 ## Installing
 1. apt install r-base package (on .deb based systems)
 2. apt install r-cran-tidyverse (on .deb based systems)
-	* On non-deb systems you can try compiling in R with: run install.packages("tidyverse")
+	* On non-deb systems you can try compiling in R by running in the R environment: install.packages("tidyverse")
 		* But, as usual with compiling, it's finicky. Better to just use the deb packages 
+		* This does seem the preferred way on Arch systems.
+		* This takes a while, it's a bunch of packages to compile
 4. As a regular user, run "R" on the command line to start R environment:
 	2. Run library(tidyverse)
 		* You have to do this at the start of every R session to load the tidyvers packages
 * This is just the base R environment on the command line. Most people prefer R Studio which gives you a whole IDE.
 * For now, I like working in vim and on the command line.
+* check out radian: https://github.com/randy3k/radian 
 
 
 ## Where to learn:
