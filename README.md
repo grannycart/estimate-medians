@@ -12,9 +12,6 @@ And another version that calculates the medians for a few NYC counties and accom
 
 The script is heavily commented, so look there for more information.
 
-Additional notes on learning R:
-* [learning-R.md](learning-R.md)
-
 ## License:
 * MIT
 * See: [LICENSE](./LICENSE)
